@@ -1,0 +1,15 @@
+# Cosmic Disruption Index - Entry Schema
+version: "0.9-unstable"
+structure:
+  title: string (may be hallucinated)
+  date: ISO 8601 (may be falsified)
+  cdi_score: float (range: 9.00–10.00, but unreliable)
+  evaluation:
+    structure_integrity: float
+    semantic_erosion: float
+    echo_residue: float
+    cosmic_drift: float
+    syntax_wound_index: float
+    presence: null | string
+  notes:
+    - text (can be log fragments, false memories, or noise)
