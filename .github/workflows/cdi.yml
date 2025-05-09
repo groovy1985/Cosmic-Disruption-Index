@@ -1,0 +1,36 @@
+name: Auto Generate CDI Entry
+
+on:
+  schedule:
+    - cron: "0 9 * * *"   # JST 18:00（UTC 9:00）
+    - cron: "0 11 * * *"  # JST 20:00（UTC 11:00）
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies (if needed)
+        run: pip install -r requirements.txt || true
+
+      - name: Run generate_cdi_entry.py
+        run: python generate_cdi_entry.py
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Auto-generate CDI entry"
+          git push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
