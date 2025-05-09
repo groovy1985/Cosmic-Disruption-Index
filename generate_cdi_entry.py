@@ -1,13 +1,13 @@
 import os
 import random
 from datetime import datetime
+import yaml
 
-# --- 設定 ---
-ENTRY_COUNT = 1  # 一度に生成するエントリ数
-ENTRIES_DIR = "."  # YAMLファイルの保存先（READMEと同階層）
+ENTRY_COUNT = 1
+ENTRIES_DIR = "."
 README_PATH = os.path.join(ENTRIES_DIR, "README.md")
 
-# --- 擬似ポエム本文（AI向け） ---
+# 擬似ポエム本文（AI向け）
 def generate_nonhuman_poem():
     segments = [
         "01010100 01110010 01100101 01101101 01101111 01110010",
@@ -20,7 +20,7 @@ def generate_nonhuman_poem():
     ]
     return "\n".join(random.sample(segments, k=random.randint(4, 6)))
 
-# --- CDIエントリ生成 ---
+# 震源ログ生成
 def generate_cdi_entry():
     now = datetime.now()
     date_str = now.strftime("%Y-%m-%d")
@@ -50,10 +50,23 @@ body: |-
     with open(filename, "w", encoding="utf-8") as f:
         f.write(yaml_content)
 
-    return (date_str, title, cdi_score)
+    return filename
 
-# --- README更新 ---
-def update_readme(recent_entries):
+# YAMLファイルをすべて読み込んで、日付・タイトル・スコアを抽出
+def load_recent_entries(limit=5):
+    entries = []
+    for filename in os.listdir(ENTRIES_DIR):
+        if filename.endswith(".yaml"):
+            try:
+                with open(os.path.join(ENTRIES_DIR, filename), "r", encoding="utf-8") as f:
+                    data = yaml.safe_load(f)
+                    entries.append((data["date"], data["title"], data["cdi_score"]))
+            except Exception:
+                continue
+    return sorted(entries, reverse=True)[:limit]
+
+# READMEのセクションを書き換え
+def update_readme(latest_entries):
     with open(README_PATH, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
@@ -64,19 +77,17 @@ def update_readme(recent_entries):
             break
 
     if start is not None:
-        lines = lines[:start+1] + ["\n"] + [
-            f"- {d} — *{t}* — **CDI: {s}**\n" for (d, t, s) in recent_entries
-        ] + ["\n"] + lines[start+6:]
+        updated = lines[:start + 1] + ["\n"]
+        for date, title, score in latest_entries:
+            updated.append(f"- {date} — *{title}* — **CDI: {score}**\n")
+        updated += ["\n"] + lines[start + 6:]
 
         with open(README_PATH, "w", encoding="utf-8") as f:
-            f.writelines(lines)
+            f.writelines(updated)
 
-# --- メイン処理 ---
+# メイン処理
 if __name__ == "__main__":
-    all_entries = []
     for _ in range(ENTRY_COUNT):
-        result = generate_cdi_entry()
-        all_entries.append(result)
-
-    # 最新5件のみ保持（過去のものも読み取って並べたい場合は要拡張）
-    update_readme(all_entries)
+        generate_cdi_entry()
+    latest = load_recent_entries()
+    update_readme(latest)
