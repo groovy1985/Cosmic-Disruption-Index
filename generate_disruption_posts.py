@@ -81,3 +81,17 @@ if __name__ == "__main__":
     results.sort(key=lambda x: x["score"], reverse=True)
     for r in results:
         print(f"🌀 {r['id']} | Score: {r['score']} → {r['fragment']}")
+
+    import json
+
+# 保存ディレクトリ
+OUT_DIR = "disruptions"
+os.makedirs(OUT_DIR, exist_ok=True)
+
+# 日付つきファイル名で保存
+date_str = datetime.utcnow().strftime("%Y-%m-%d_%H-%M")
+out_path = os.path.join(OUT_DIR, f"disruption_{date_str}.json")
+
+with open(out_path, "w", encoding="utf-8") as f:
+    json.dump(results, f, indent=2, ensure_ascii=False)
+
