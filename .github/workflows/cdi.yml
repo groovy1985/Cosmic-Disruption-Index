@@ -27,9 +27,8 @@ jobs:
       - name: Run Disruption Generator
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: |
-          cd Cosmic-Disruption-Index
-          python generate_disruption_posts.py
+        run: python generate_disruption_posts.py
+
 
 
       - name: Commit and push (optional, if saving)
