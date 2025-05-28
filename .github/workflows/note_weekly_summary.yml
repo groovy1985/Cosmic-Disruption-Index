@@ -1,0 +1,35 @@
+name: Generate Weekly CDI Note
+
+on:
+  schedule:
+    - cron: "0 2 * * MON"  # JST月曜朝11時
+  workflow_dispatch:
+
+jobs:
+  generate_weekly_note:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+
+      - name: Generate Weekly Note
+        run: python generate_weekly_note_cdi.py
+
+      - name: Commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add note_weekly/
+          git commit -m "Auto: weekly CDI note summary" || echo "No changes"
+          git push
