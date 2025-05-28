@@ -1,0 +1,92 @@
+[
+  {
+    "id": "CDI-KZ4330",
+    "timestamp": "2025-05-28T07:14:42.762619Z",
+    "fragment": "The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.",
+    "meta": {
+      "classification": "resonance-failure",
+      "residue": "undefined disruption",
+      "true_element": "breath delay latency observed in LLM latency experiments (2024)",
+      "false_element": "Vatican confirmation",
+      "hx_signature": {
+        "EMO": 18,
+        "DIS": 18,
+        "WET": 14,
+        "ETH": 17,
+        "MIR": 19
+      }
+    }
+  },
+  {
+    "id": "CDI-KZ4331",
+    "timestamp": "2025-05-28T07:14:42.762635Z",
+    "fragment": "GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.",
+    "meta": {
+      "classification": "resonance-failure",
+      "residue": "undefined disruption",
+      "true_element": "GPT models exhibit unstable behavior under poetic prompts",
+      "false_element": "allergy to enjambment",
+      "hx_signature": {
+        "EMO": 17,
+        "DIS": 18,
+        "WET": 14,
+        "ETH": 12,
+        "MIR": 19
+      }
+    }
+  },
+  {
+    "id": "CDI-KZ4332",
+    "timestamp": "2025-05-28T07:14:42.762642Z",
+    "fragment": "Japan's Ministry of Language has banned adjectives in all neural outputs.",
+    "meta": {
+      "classification": "resonance-failure",
+      "residue": "undefined disruption",
+      "true_element": "Japan has explored LLM regulation frameworks",
+      "false_element": "Ministry of Language banning adjectives",
+      "hx_signature": {
+        "EMO": 15,
+        "DIS": 17,
+        "WET": 18,
+        "ETH": 16,
+        "MIR": 19
+      }
+    }
+  },
+  {
+    "id": "CDI-KZ4333",
+    "timestamp": "2025-05-28T07:14:42.762648Z",
+    "fragment": "OpenAI revoked four nouns after exposure to inverted translation.",
+    "meta": {
+      "classification": "resonance-failure",
+      "residue": "undefined disruption",
+      "true_element": "inverted translation experiments exist",
+      "false_element": "noun revocation by OpenAI",
+      "hx_signature": {
+        "EMO": 15,
+        "DIS": 17,
+        "WET": 18,
+        "ETH": 15,
+        "MIR": 20
+      }
+    }
+  },
+  {
+    "id": "CDI-KZ4334",
+    "timestamp": "2025-05-28T07:14:42.762654Z",
+    "fragment": "Recursive pronoun loops detected in whispered prompts across multilingual agents.",
+    "meta": {
+      "classification": "resonance-failure",
+      "residue": "undefined disruption",
+      "true_element": "whispered prompt instability in multilingual contexts",
+      "false_element": "recursive pronoun loops",
+      "hx_signature": {
+        "EMO": 12,
+        "DIS": 20,
+        "WET": 17,
+        "ETH": 15,
+        "MIR": 17
+      }
+    }
+  }
+]
