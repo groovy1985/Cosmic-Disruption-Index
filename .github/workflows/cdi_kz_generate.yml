@@ -1,0 +1,41 @@
+name: Generate KZ-HX Disruption Logs
+
+on:
+  schedule:
+    - cron: "0 15,17,19,21,23,1,3,5,7,9 * * *"
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install openai==0.28
+
+      - name: Generate Disruption Logs (KZ-HX)
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: python generate_cdi_kz.py
+
+      - name: Generate README and Daily Summary
+        run: python generate_cdi_summary_kz.py
+
+      - name: Commit and push
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Auto: generated CDI-KZ logs + summary" || echo "No changes"
+          git push
