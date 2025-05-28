@@ -1,4 +1,3 @@
-
 import os
 import json
 from datetime import datetime
@@ -28,22 +27,15 @@ def hx_score(entry):
 top3 = sorted(data, key=hx_score, reverse=True)[:3]
 
 # === README.md 更新ブロック ===
-readme_block = "## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
-
-"
+readme_block = "## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)\n\n"
 for entry in top3:
     frag = entry["fragment"]
     hx = entry["meta"]["hx_signature"]
     readme_block += (
-        f"- **{entry['id']}**  
-"
-        f"  “{frag}”  
-"
-        f"  🔻 HX: DIS={hx['DIS']}｜MIR={hx['MIR']}｜WET={hx['WET']}  
-"
-        f"  🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}
-
-"
+        f"- **{entry['id']}**  \n"
+        f"  “{frag}”  \n"
+        f"  🔻 HX: DIS={hx['DIS']}｜MIR={hx['MIR']}｜WET={hx['WET']}  \n"
+        f"  🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}\n\n"
     )
 
 # === README.md 書き換え処理 ===
@@ -51,9 +43,7 @@ if os.path.exists(README_PATH):
     with open(README_PATH, "r", encoding="utf-8") as f:
         lines = f.readlines()
 else:
-    lines = ["# Cosmic Disruption Index
-
-"]
+    lines = ["# Cosmic Disruption Index\n\n"]
 
 start = None
 for i, line in enumerate(lines):
@@ -67,8 +57,7 @@ if start is not None:
         end += 1
     new_lines = lines[:start] + [readme_block] + lines[end:]
 else:
-    new_lines = lines + ["
-"] + [readme_block]
+    new_lines = lines + ["\n"] + [readme_block]
 
 with open(README_PATH, "w", encoding="utf-8") as f:
     f.writelines(new_lines)
@@ -80,26 +69,14 @@ date_str = datetime.utcnow().strftime("%Y-%m-%d")
 summary_path = os.path.join(SUMMARY_DIR, f"cdi_summary_{date_str}.md")
 
 with open(summary_path, "w", encoding="utf-8") as f:
-    f.write(f"# 🌐 Cosmic Disruption Log | {date_str}
-
-")
+    f.write(f"# 🌐 Cosmic Disruption Log | {date_str}\n\n")
     for entry in data:
         hx = entry["meta"]["hx_signature"]
-        f.write(f"## {entry['id']}
-")
-        f.write(f"**Fragment**: “{entry['fragment']}”
-
-")
-        f.write(f"**True**: {entry['meta']['true_element']}
-")
-        f.write(f"**False**: {entry['meta']['false_element']}
-
-")
-        f.write(f"**HX Signature**: DIS={hx['DIS']}, MIR={hx['MIR']}, WET={hx['WET']}, EMO={hx['EMO']}, ETH={hx['ETH']}
-
-")
-        f.write("---
-
-")
+        f.write(f"## {entry['id']}\n")
+        f.write(f"**Fragment**: “{entry['fragment']}”\n\n")
+        f.write(f"**True**: {entry['meta']['true_element']}\n")
+        f.write(f"**False**: {entry['meta']['false_element']}\n\n")
+        f.write(f"**HX Signature**: DIS={hx['DIS']}, MIR={hx['MIR']}, WET={hx['WET']}, EMO={hx['EMO']}, ETH={hx['ETH']}\n\n")
+        f.write("---\n\n")
 
 print(f"[+] Summary saved to {summary_path}")
