@@ -1,3 +1,4 @@
+# generate_note_weekly.py
 
 import os
 import json
@@ -20,33 +21,20 @@ def collect_week_logs():
         if ftime >= week_ago:
             with open(fpath, "r", encoding="utf-8") as f:
                 logs.extend(json.load(f))
-
     return logs
 
 def save_note_summary(logs):
     date_str = datetime.utcnow().strftime("%Y-%m-%d")
     path = os.path.join(OUTPUT_DIR, f"note-cdi-{date_str}.md")
     with open(path, "w", encoding="utf-8") as f:
-        f.write("# Weekly Disruption Digest (KZ+HX Edition)
-
----
-
-")
+        f.write("# Weekly Disruption Digest (KZ+HX Edition)\n\n---\n\n")
         for entry in logs:
-            f.write(f"## {entry['id']}
-")
-            f.write(f"“{entry['fragment']}”
-
-")
-            f.write(f"- 🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}
-")
+            f.write(f"## {entry['id']}\n")
+            f.write(f"“{entry['fragment']}”\n\n")
+            f.write(f"- 🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}\n")
             hx = entry['meta']['hx_signature']
-            f.write(f"- HX: DIS={hx['DIS']}, MIR={hx['MIR']}, EMO={hx['EMO']}, ETH={hx['ETH']}, WET={hx['WET']}
-
-")
-            f.write("---
-
-")
+            f.write(f"- HX: DIS={hx['DIS']}, MIR={hx['MIR']}, EMO={hx['EMO']}, ETH={hx['ETH']}, WET={hx['WET']}\n\n")
+            f.write("---\n\n")
     print(f"[+] Weekly note saved to: {path}")
 
 if __name__ == "__main__":
