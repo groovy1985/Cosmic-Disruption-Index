@@ -1,9 +1,8 @@
-name: Generate 10x Disruption Posts
+name: Generate KZ-HX Disruption Logs
 
 on:
   schedule:
-    # JST 0時〜18時（2時間おき） = UTC 15,17,19,21,23,1,3,5,7,9
-    - cron: "0 15,17,19,21,23,1,3,5,7,9 * * *"
+    - cron: "0 15,17,19,21,23,1,3,5,7,9 * * *"  # JST 2時間おき
   workflow_dispatch:
 
 jobs:
@@ -24,13 +23,13 @@ jobs:
           pip install --upgrade pip
           pip install openai==0.28
 
-      - name: Generate Disruption Posts (.json)
+      - name: Generate Disruption Logs (KZ-HX mode)
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        run: python generate_disruption_posts.py
+        run: python generate_cdi_kz.py
 
-      - name: Generate README Top3 + Daily Summary (.md)
-        run: python generate_disruption_summary.py
+      - name: Generate README and Summary
+        run: python generate_cdi_summary_kz.py
 
       - name: Commit and push changes
         env:
@@ -39,5 +38,5 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Auto: generated disruptions + summary" || echo "No changes"
+          git commit -m "Auto: generated CDI-KZ logs + summary" || echo "No changes"
           git push
