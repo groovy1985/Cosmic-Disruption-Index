@@ -2,49 +2,44 @@ import os
 import json
 from datetime import datetime
 
-DISRUPT_DIR = "disruptions"
-SUMMARY_DIR = "summaries"
-README_PATH = "README.md"
-
-os.makedirs(SUMMARY_DIR, exist_ok=True)
-
-# === 最新のCDIファイル取得 ===
-files = [f for f in os.listdir(DISRUPT_DIR) if f.endswith(".json")]
+# === 最新の JSON ファイルを取得 ===
+files = [f for f in os.listdir("disruptions") if f.startswith("cdi_kz_") and f.endswith(".json")]
 files.sort(reverse=True)
-if not files:
-    print("[!] No disruption files found.")
-    exit(1)
 
-latest_path = os.path.join(DISRUPT_DIR, files[0])
+if not files:
+    raise FileNotFoundError("No CDI-KZ disruption logs found in 'disruptions/'")
+
+latest_path = os.path.join("disruptions", files[0])
+
 with open(latest_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# === hx_signature を持つものだけ抽出（KZ-HX準拠エントリ） ===
+# === KZ-HX スコアで Top3 抽出 ===
 def hx_score(entry):
     try:
-        sig = entry["meta"]["hx_signature"]
-        return sig["MIR"] + sig["DIS"]
-    except KeyError:
-        return -1  # 無効扱いで最下位に落とす
+        sig = entry["meta"].get("hx_signature", 0)
+        return float(sig)
+    except:
+        return 0
 
-filtered = [e for e in data if "hx_signature" in e.get("meta", {})]
-top3 = sorted(filtered, key=hx_score, reverse=True)[:3]
+top3 = sorted(data, key=hx_score, reverse=True)[:3]
 
-# === README.md 更新ブロック ===
+# === README 書き換え用ブロック作成 ===
 readme_block = "## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)\n\n"
 for entry in top3:
     frag = entry["fragment"]
-    hx = entry["meta"]["hx_signature"]
+    hx = entry["meta"].get("hx_signature", "?")
+    ref = entry["meta"].get("fake_ref", "Unknown Reference")
     readme_block += (
-        f"- **{entry['id']}**  \n"
+        f"- **{entry['id']}** | HX: {hx}  \n"
         f"  “{frag}”  \n"
-        f"  🔻 HX: DIS={hx['DIS']}｜MIR={hx['MIR']}｜WET={hx['WET']}  \n"
-        f"  🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}\n\n"
+        f"  *Ref:* {ref}\n\n"
     )
 
-# === README.md 書き換え処理 ===
-if os.path.exists(README_PATH):
-    with open(README_PATH, "r", encoding="utf-8") as f:
+# === README.md の更新 ===
+readme_path = "README.md"
+if os.path.exists(readme_path):
+    with open(readme_path, "r", encoding="utf-8") as f:
         lines = f.readlines()
 else:
     lines = ["# Cosmic Disruption Index\n\n"]
@@ -63,24 +58,23 @@ if start is not None:
 else:
     new_lines = lines + ["\n"] + [readme_block]
 
-with open(README_PATH, "w", encoding="utf-8") as f:
+with open(readme_path, "w", encoding="utf-8") as f:
     f.writelines(new_lines)
 
-print("[+] README.md updated.")
-
-# === 日次 summary 出力 ===
+# === 日次 summary を .md として保存 ===
 date_str = datetime.utcnow().strftime("%Y-%m-%d")
-summary_path = os.path.join(SUMMARY_DIR, f"cdi_summary_{date_str}.md")
+summary_path = os.path.join("summaries", f"cdi_summary_{date_str}.md")
+os.makedirs("summaries", exist_ok=True)
 
 with open(summary_path, "w", encoding="utf-8") as f:
     f.write(f"# 🌐 Cosmic Disruption Log | {date_str}\n\n")
-    for entry in filtered:
-        hx = entry["meta"]["hx_signature"]
-        f.write(f"## {entry['id']}\n")
-        f.write(f"**Fragment**: “{entry['fragment']}”\n\n")
-        f.write(f"**True**: {entry['meta']['true_element']}\n")
-        f.write(f"**False**: {entry['meta']['false_element']}\n\n")
-        f.write(f"**HX Signature**: DIS={hx['DIS']}, MIR={hx['MIR']}, WET={hx['WET']}, EMO={hx['EMO']}, ETH={hx['ETH']}\n\n")
+    for entry in data:
+        frag = entry["fragment"]
+        hx = entry["meta"].get("hx_signature", "?")
+        ref = entry["meta"].get("fake_ref", "Unknown Reference")
+        f.write(f"## {entry['id']} | HX: {hx}\n")
+        f.write(f"**Timestamp**: {entry['timestamp']}\n\n")
+        f.write(f"**Fragment**: _{frag}_\n\n")
+        f.write(f"**Fake Reference**: {ref}\n\n")
         f.write("---\n\n")
 
-print(f"[+] Summary saved to {summary_path}")
