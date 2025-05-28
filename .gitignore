@@ -1,0 +1,26 @@
+# Python キャッシュ
+__pycache__/
+*.py[cod]
+*.pyo
+
+# 環境ファイル
+.env
+*.env
+
+# エディタ設定
+.vscode/
+.idea/
+
+# OS生成の不要ファイル
+.DS_Store
+Thumbs.db
+
+# 自動生成成果物（CI/CDで毎回上書きされるためGitに含めない）
+disruptions/
+summaries/
+note_weekly/
+zine_monthly/
+
+# ログ・一時ファイル
+*.log
+*.tmp
