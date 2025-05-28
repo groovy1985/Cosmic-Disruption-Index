@@ -40,3 +40,5 @@ jobs:
           git add .
           git commit -m "Auto: generated CDI-KZ logs + summary" || echo "No changes"
           git push
+          fi
+          
