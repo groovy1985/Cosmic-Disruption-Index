@@ -1,4 +1,4 @@
-# generate_note_weekly.py
+# generate_weekly_note_cdi.py
 
 import os
 import json
@@ -29,11 +29,15 @@ def save_note_summary(logs):
     with open(path, "w", encoding="utf-8") as f:
         f.write("# Weekly Disruption Digest (KZ+HX Edition)\n\n---\n\n")
         for entry in logs:
+            meta = entry.get("meta", {})
+            hx = meta.get("hx_signature", {})
             f.write(f"## {entry['id']}\n")
             f.write(f"“{entry['fragment']}”\n\n")
-            f.write(f"- 🕯 嘘: {entry['meta']['false_element']}｜真: {entry['meta']['true_element']}\n")
-            hx = entry['meta']['hx_signature']
-            f.write(f"- HX: DIS={hx['DIS']}, MIR={hx['MIR']}, EMO={hx['EMO']}, ETH={hx['ETH']}, WET={hx['WET']}\n\n")
+            f.write(f"- 🕯 嘘: {meta.get('false_element', 'N/A')}｜真: {meta.get('true_element', 'N/A')}\n")
+            f.write(
+                f"- HX: DIS={hx.get('DIS', '?')}, MIR={hx.get('MIR', '?')}, "
+                f"EMO={hx.get('EMO', '?')}, ETH={hx.get('ETH', '?')}, WET={hx.get('WET', '?')}\n\n"
+            )
             f.write("---\n\n")
     print(f"[+] Weekly note saved to: {path}")
 
