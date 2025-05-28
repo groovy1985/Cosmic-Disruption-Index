@@ -19,12 +19,16 @@ latest_path = os.path.join(DISRUPT_DIR, files[0])
 with open(latest_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# === HXスコアでTop3抽出（MIR + DIS優先） ===
+# === hx_signature を持つものだけ抽出（KZ-HX準拠エントリ） ===
 def hx_score(entry):
-    sig = entry["meta"]["hx_signature"]
-    return sig["MIR"] + sig["DIS"]
+    try:
+        sig = entry["meta"]["hx_signature"]
+        return sig["MIR"] + sig["DIS"]
+    except KeyError:
+        return -1  # 無効扱いで最下位に落とす
 
-top3 = sorted(data, key=hx_score, reverse=True)[:3]
+filtered = [e for e in data if "hx_signature" in e.get("meta", {})]
+top3 = sorted(filtered, key=hx_score, reverse=True)[:3]
 
 # === README.md 更新ブロック ===
 readme_block = "## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)\n\n"
@@ -70,7 +74,7 @@ summary_path = os.path.join(SUMMARY_DIR, f"cdi_summary_{date_str}.md")
 
 with open(summary_path, "w", encoding="utf-8") as f:
     f.write(f"# 🌐 Cosmic Disruption Log | {date_str}\n\n")
-    for entry in data:
+    for entry in filtered:
         hx = entry["meta"]["hx_signature"]
         f.write(f"## {entry['id']}\n")
         f.write(f"**Fragment**: “{entry['fragment']}”\n\n")
