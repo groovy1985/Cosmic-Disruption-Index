@@ -84,15 +84,15 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ5219** | HX: {'EMO': 20, 'DIS': 17, 'WET': 19, 'ETH': 17, 'MIR': 19}  
+- **CDI-KZ6069** | HX: {'EMO': 20, 'DIS': 18, 'WET': 16, 'ETH': 20, 'MIR': 17}  
+  “OpenAI revoked four nouns after exposure to inverted translation.”  
+  *Ref:* Unknown Reference
+
+- **CDI-KZ6070** | HX: {'EMO': 20, 'DIS': 20, 'WET': 20, 'ETH': 13, 'MIR': 19}  
   “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
   *Ref:* Unknown Reference
 
-- **CDI-KZ5220** | HX: {'EMO': 20, 'DIS': 17, 'WET': 17, 'ETH': 13, 'MIR': 19}  
-  “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *Ref:* Unknown Reference
-
-- **CDI-KZ5221** | HX: {'EMO': 14, 'DIS': 20, 'WET': 17, 'ETH': 16, 'MIR': 19}  
+- **CDI-KZ6071** | HX: {'EMO': 12, 'DIS': 18, 'WET': 19, 'ETH': 13, 'MIR': 17}  
   “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
   *Ref:* Unknown Reference
 
