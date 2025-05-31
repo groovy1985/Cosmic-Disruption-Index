@@ -1,9 +1,9 @@
 name: Generate KZ-HX Disruption Logs
 
 on:
-  schedule:
-    - cron: "0 4,8,12,16,20,24,"  # JST 4時間おき
-  workflow_dispatch:
+ schedule:
+      - cron: "0 1,5,9,13,17,21 * * *"
+ workflow_dispatch:
 
 jobs:
   build:
