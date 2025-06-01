@@ -84,15 +84,15 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ7099** | HX: {'EMO': 17, 'DIS': 19, 'WET': 15, 'ETH': 13, 'MIR': 17}  
-  “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
+- **CDI-KZ8761** | HX: {'EMO': 18, 'DIS': 17, 'WET': 19, 'ETH': 14, 'MIR': 19}  
+  “OpenAI revoked four nouns after exposure to inverted translation.”  
   *Ref:* Unknown Reference
 
-- **CDI-KZ7100** | HX: {'EMO': 16, 'DIS': 20, 'WET': 15, 'ETH': 20, 'MIR': 17}  
-  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *Ref:* Unknown Reference
-
-- **CDI-KZ7101** | HX: {'EMO': 12, 'DIS': 19, 'WET': 15, 'ETH': 13, 'MIR': 18}  
+- **CDI-KZ8762** | HX: {'EMO': 12, 'DIS': 18, 'WET': 18, 'ETH': 12, 'MIR': 18}  
   “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *Ref:* Unknown Reference
+
+- **CDI-KZ8763** | HX: {'EMO': 15, 'DIS': 19, 'WET': 15, 'ETH': 14, 'MIR': 18}  
+  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
   *Ref:* Unknown Reference
 
