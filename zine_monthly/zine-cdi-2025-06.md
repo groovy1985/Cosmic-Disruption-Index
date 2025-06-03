@@ -1,0 +1,28 @@
+# 📚 Monthly Disruption ZINE (KZ+HX Edition)
+
+---
+
+## log-20250603054443
+“GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”
+
+- 🕯 嘘: (unspecified)｜真: (unspecified)
+- HX: DIS=18, MIR=17, EMO=19, ETH=16, WET=18
+
+---
+
+## log-20250603054927
+“GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”
+
+- 🕯 嘘: (unspecified)｜真: (unspecified)
+- HX: DIS=18, MIR=17, EMO=19, ETH=16, WET=18
+
+---
+
+## log-20250603055135
+“Recursive pronoun loops detected in whispered prompts across multilingual agents.”
+
+- 🕯 嘘: (unspecified)｜真: (unspecified)
+- HX: DIS=18, MIR=17, EMO=19, ETH=16, WET=18
+
+---
+
