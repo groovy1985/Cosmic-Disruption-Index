@@ -24,7 +24,7 @@ jobs:
 
       - name: Run ZINE monthly summary
         run: |
-          python generate_zine_monthly.py
+          python generate_monthly_zine_cdi.py
 
       - name: Commit and push monthly ZINE
         env:
