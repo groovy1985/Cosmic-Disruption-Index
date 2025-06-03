@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ9481** | HX Total: 86  
-  “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *HX Breakdown:* EMO:18, DIS:17, WET:18, ETH:14, MIR:19  
-  *Ref:* True: GPT models exhibit unstable behavior under poetic prompts / False: allergy to enjambment
+- **CDI-KZ6799** | HX Total: 85  
+  “OpenAI revoked four nouns after exposure to inverted translation.”  
+  *HX Breakdown:* EMO:15, DIS:18, WET:18, ETH:16, MIR:18  
+  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
 
-- **CDI-KZ9485** | HX Total: 86  
+- **CDI-KZ6797** | HX Total: 84  
   “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *HX Breakdown:* EMO:17, DIS:17, WET:16, ETH:18, MIR:18  
+  *HX Breakdown:* EMO:17, DIS:18, WET:14, ETH:17, MIR:18  
   *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
 
-- **CDI-KZ9484** | HX Total: 85  
-  “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:16, DIS:17, WET:19, ETH:16, MIR:17  
-  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
+- **CDI-KZ6796** | HX Total: 82  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:14, DIS:17, WET:16, ETH:15, MIR:20  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
