@@ -2,7 +2,7 @@ name: Trigger Death Post from CDI
 
 on:
   workflow_run:
-    workflows: ["Generate Disruption Log"]  # 実際のCDIログ生成workflow名に合わせて要変更
+    workflows: ["Generate KZ-HX Disruption Logs"]  # ← 正式名称（完全一致）
     types: [completed]
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
       - name: Get latest log
         id: get_log
         run: |
-          LATEST=$(ls logs | grep '^log.*\.md$' | sort | tail -n 1)
+          LATEST=$(ls logs | grep '^log.*\.json$' | sort | tail -n 1)
           echo "latest_log=$LATEST" >> $GITHUB_ENV
 
       - name: Clone death-and-the-flower
@@ -39,7 +39,7 @@ jobs:
           cd death-and-the-flower
           python auto_from_external.py \
             --source_file "../logs/${{ env.latest_log }}" \
-            --source_type corrupt \
+            --source_type cdi \
             --persona death
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
