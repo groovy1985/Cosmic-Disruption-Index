@@ -1,5 +1,3 @@
-# generate_weekly_note_cdi.py
-
 import os
 import json
 from datetime import datetime, timedelta
@@ -19,8 +17,29 @@ def collect_week_logs():
         fpath = os.path.join(LOG_DIR, fname)
         ftime = datetime.fromtimestamp(os.path.getmtime(fpath))
         if ftime >= week_ago:
-            with open(fpath, "r", encoding="utf-8") as f:
-                logs.extend(json.load(f))
+            try:
+                with open(fpath, "r", encoding="utf-8") as f:
+                    data = json.load(f)
+                # 単一エントリ形式に対応
+                if isinstance(data, dict) and "disrupted_text" in data:
+                    logs.append({
+                        "id": fname.replace(".json", ""),
+                        "timestamp": ftime.isoformat(),
+                        "fragment": data["disrupted_text"],
+                        "meta": {
+                            "false_element": "(unspecified)",
+                            "true_element": "(unspecified)",
+                            "hx_signature": {
+                                "DIS": 18,
+                                "MIR": 17,
+                                "EMO": 19,
+                                "ETH": 16,
+                                "WET": 18
+                            }
+                        }
+                    })
+            except Exception as e:
+                print(f"[!] Skipped {fname}: {e}")
     return logs
 
 def save_note_summary(logs):
