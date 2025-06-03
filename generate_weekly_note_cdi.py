@@ -4,7 +4,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-LOG_DIR = "disruptions"
+LOG_DIR = "logs"
 OUTPUT_DIR = "note_weekly"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
