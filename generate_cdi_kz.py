@@ -1,4 +1,3 @@
-
 import os
 import random
 import json
@@ -73,6 +72,7 @@ if __name__ == "__main__":
         entry = generate_entry(index_base + i, base)
         entries.append(entry)
 
+    # --- 複数エントリ保存（通常ログ）
     date_str = datetime.utcnow().strftime("%Y-%m-%d_%H-%M")
     out_path = os.path.join(OUT_DIR, f"cdi_kz_{date_str}.json")
 
@@ -80,3 +80,18 @@ if __name__ == "__main__":
         json.dump(entries, f, indent=2, ensure_ascii=False)
 
     print(f"[+] Generated {len(entries)} CDI-KZ entries → {out_path}")
+
+    # --- 吊構文Poem用に1件ランダム出力（death-and-the-flower向け）
+    DEATH_OUT_DIR = "logs"
+    os.makedirs(DEATH_OUT_DIR, exist_ok=True)
+
+    selected_for_death = random.choice(entries)
+    death_entry = {
+        "disrupted_text": selected_for_death["fragment"]
+    }
+
+    death_out_path = os.path.join(DEATH_OUT_DIR, f"log-{datetime.utcnow().strftime('%Y%m%d%H%M%S')}.json")
+    with open(death_out_path, "w", encoding="utf-8") as f:
+        json.dump(death_entry, f, indent=2, ensure_ascii=False)
+
+    print(f"[✓] Death吊構文ポエム用に 1件出力 → {death_out_path}")
