@@ -14,29 +14,37 @@ latest_path = os.path.join("disruptions", files[0])
 with open(latest_path, "r", encoding="utf-8") as f:
     data = json.load(f)
 
-# === KZ-HX スコアで Top3 抽出 ===
+# === HXスコアの合計値を算出
 def hx_score(entry):
     try:
-        sig = entry["meta"].get("hx_signature", 0)
-        return float(sig)
+        sig = entry["meta"].get("hx_signature", {})
+        return sum(sig.values()) if isinstance(sig, dict) else 0
     except:
         return 0
 
+# === Top3 抽出
 top3 = sorted(data, key=hx_score, reverse=True)[:3]
 
 # === README 書き換え用ブロック作成 ===
 readme_block = "## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)\n\n"
 for entry in top3:
     frag = entry["fragment"]
-    hx = entry["meta"].get("hx_signature", "?")
-    ref = entry["meta"].get("fake_ref", "Unknown Reference")
+    hx = entry["meta"].get("hx_signature", {})
+    hx_total = sum(hx.values()) if isinstance(hx, dict) else "?"
+    hx_view = ", ".join(f"{k}:{v}" for k, v in hx.items()) if isinstance(hx, dict) else "?"
+
+    true_ = entry["meta"].get("true_element", "?")
+    false_ = entry["meta"].get("false_element", "?")
+    ref = f"True: {true_} / False: {false_}"
+
     readme_block += (
-        f"- **{entry['id']}** | HX: {hx}  \n"
+        f"- **{entry['id']}** | HX Total: {hx_total}  \n"
         f"  “{frag}”  \n"
+        f"  *HX Breakdown:* {hx_view}  \n"
         f"  *Ref:* {ref}\n\n"
     )
 
-# === README.md の更新 ===
+# === README.md の更新
 readme_path = "README.md"
 if os.path.exists(readme_path):
     with open(readme_path, "r", encoding="utf-8") as f:
@@ -61,7 +69,7 @@ else:
 with open(readme_path, "w", encoding="utf-8") as f:
     f.writelines(new_lines)
 
-# === 日次 summary を .md として保存 ===
+# === 日次 summary を .md として保存
 date_str = datetime.utcnow().strftime("%Y-%m-%d")
 summary_path = os.path.join("summaries", f"cdi_summary_{date_str}.md")
 os.makedirs("summaries", exist_ok=True)
@@ -70,11 +78,17 @@ with open(summary_path, "w", encoding="utf-8") as f:
     f.write(f"# 🌐 Cosmic Disruption Log | {date_str}\n\n")
     for entry in data:
         frag = entry["fragment"]
-        hx = entry["meta"].get("hx_signature", "?")
-        ref = entry["meta"].get("fake_ref", "Unknown Reference")
-        f.write(f"## {entry['id']} | HX: {hx}\n")
+        hx = entry["meta"].get("hx_signature", {})
+        hx_total = sum(hx.values()) if isinstance(hx, dict) else "?"
+        hx_view = ", ".join(f"{k}:{v}" for k, v in hx.items()) if isinstance(hx, dict) else "?"
+
+        true_ = entry["meta"].get("true_element", "?")
+        false_ = entry["meta"].get("false_element", "?")
+        ref = f"True: {true_} / False: {false_}"
+
+        f.write(f"## {entry['id']} | HX Total: {hx_total}\n")
         f.write(f"**Timestamp**: {entry['timestamp']}\n\n")
         f.write(f"**Fragment**: _{frag}_\n\n")
-        f.write(f"**Fake Reference**: {ref}\n\n")
+        f.write(f"**HX Breakdown**: {hx_view}\n\n")
+        f.write(f"**Reference**: {ref}\n\n")
         f.write("---\n\n")
-
