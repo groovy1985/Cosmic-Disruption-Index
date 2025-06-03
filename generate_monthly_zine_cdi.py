@@ -1,10 +1,8 @@
-# generate_zine_monthly.py
-
 import os
 import json
 from datetime import datetime
 
-LOG_DIR = "disruptions"
+LOG_DIR = "logs"  # ← ここを変更
 OUTPUT_DIR = "zine_monthly"
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
