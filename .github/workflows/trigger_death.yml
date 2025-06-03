@@ -2,21 +2,24 @@ name: Trigger Death Post from CDI
 
 on:
   workflow_run:
-    workflows: ["Generate KZ-HX Disruption Logs"]  # ← 正式名称（完全一致）
+    workflows: ["Generate KZ-HX Disruption Logs"]  # ✅ 正確なworkflow名に合わせてください
     types: [completed]
 
 jobs:
   post-to-death:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get latest log
+      - name: Get latest log and prepare
         id: get_log
         run: |
           LATEST=$(ls logs | grep '^log.*\.json$' | sort | tail -n 1)
           echo "latest_log=$LATEST" >> $GITHUB_ENV
+          mkdir -p death-and-the-flower/logs
+          cp logs/$LATEST death-and-the-flower/logs/
 
       - name: Clone death-and-the-flower
         env:
@@ -38,7 +41,7 @@ jobs:
         run: |
           cd death-and-the-flower
           python auto_from_external.py \
-            --source_file "../logs/${{ env.latest_log }}" \
+            --source_file "logs/${{ env.latest_log }}" \
             --source_type cdi \
             --persona death
         env:
