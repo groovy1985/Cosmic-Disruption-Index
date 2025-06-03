@@ -2,7 +2,7 @@ name: Trigger Death Post from CDI
 
 on:
   workflow_run:
-    workflows: ["Generate Disruption Log"]  # ← CDI側のログ生成ワークフロー名
+    workflows: ["Generate Disruption Log"]  # 実際のCDIログ生成workflow名に合わせて要変更
     types: [completed]
 
 jobs:
