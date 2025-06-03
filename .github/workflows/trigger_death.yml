@@ -1,0 +1,50 @@
+name: Trigger Death Post from CDI
+
+on:
+  workflow_run:
+    workflows: ["Generate Disruption Log"]  # ← CDI側のログ生成ワークフロー名
+    types: [completed]
+
+jobs:
+  post-to-death:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Get latest log
+        id: get_log
+        run: |
+          LATEST=$(ls logs | grep '^log.*\.md$' | sort | tail -n 1)
+          echo "latest_log=$LATEST" >> $GITHUB_ENV
+
+      - name: Clone death-and-the-flower
+        env:
+          PAT_FOR_CLONE: ${{ secrets.PAT_FOR_CLONE }}
+        run: |
+          git clone https://x-access-token:${PAT_FOR_CLONE}@github.com/groovy1985/death-and-the-flower.git
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install deps
+        run: |
+          cd death-and-the-flower
+          pip install -r requirements.txt
+
+      - name: Run death auto-post
+        run: |
+          cd death-and-the-flower
+          python auto_from_external.py \
+            --source_file "../logs/${{ env.latest_log }}" \
+            --source_type corrupt \
+            --persona death
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          TWITTER_API_KEY: ${{ secrets.TWITTER_API_KEY }}
+          TWITTER_API_SECRET: ${{ secrets.TWITTER_API_SECRET }}
+          TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          TWITTER_ACCESS_SECRET: ${{ secrets.TWITTER_ACCESS_SECRET }}
+          TWITTER_BEARER_TOKEN: ${{ secrets.TWITTER_BEARER_TOKEN }}
