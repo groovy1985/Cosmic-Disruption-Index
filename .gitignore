@@ -19,7 +19,7 @@ Thumbs.db
 disruptions/
 summaries/
 note_weekly/
-zine_monthly/
+# zine_monthly/ ← コメントアウトして追跡対象に戻す
 
 # ログ・一時ファイル
 *.log
