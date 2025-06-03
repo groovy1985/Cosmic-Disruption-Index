@@ -2,7 +2,7 @@ name: Trigger Death Post from CDI
 
 on:
   workflow_run:
-    workflows: ["Generate KZ-HX Disruption Logs"]  # ✅ 正確なworkflow名に合わせてください
+    workflows: ["Generate KZ-HX Disruption Logs"]  # ✅ 正確なworkflow名を完全一致で指定
     types: [completed]
 
 jobs:
@@ -13,26 +13,29 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Get latest log and prepare
-        id: get_log
-        run: |
-          LATEST=$(ls logs | grep '^log.*\.json$' | sort | tail -n 1)
-          echo "latest_log=$LATEST" >> $GITHUB_ENV
-          mkdir -p death-and-the-flower/logs
-          cp logs/$LATEST death-and-the-flower/logs/
-
       - name: Clone death-and-the-flower
         env:
           PAT_FOR_CLONE: ${{ secrets.PAT_FOR_CLONE }}
         run: |
           git clone https://x-access-token:${PAT_FOR_CLONE}@github.com/groovy1985/death-and-the-flower.git
 
+      - name: Get latest log and prepare
+        id: get_log
+        run: |
+          if [ ! -d logs ]; then
+            echo "❌ logs/ ディレクトリが存在しません"
+            exit 1
+          fi
+          LATEST=$(ls logs | grep '^log.*\.json$' | sort | tail -n 1)
+          echo "latest_log=$LATEST" >> $GITHUB_ENV
+          cp logs/$LATEST death-and-the-flower/logs/
+
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
 
-      - name: Install deps
+      - name: Install dependencies
         run: |
           cd death-and-the-flower
           pip install -r requirements.txt
