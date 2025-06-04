@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ8009** | HX Total: 88  
-  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *HX Breakdown:* EMO:18, DIS:20, WET:14, ETH:17, MIR:19  
-  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
+- **CDI-KZ4037** | HX Total: 97  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:19, DIS:20, WET:18, ETH:20, MIR:20  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
-- **CDI-KZ8010** | HX Total: 87  
+- **CDI-KZ4038** | HX Total: 97  
   “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:13, DIS:20, WET:20, ETH:15, MIR:19  
+  *HX Breakdown:* EMO:19, DIS:19, WET:20, ETH:19, MIR:20  
   *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
 
-- **CDI-KZ8011** | HX Total: 87  
-  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
-  *HX Breakdown:* EMO:12, DIS:19, WET:18, ETH:19, MIR:19  
-  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
+- **CDI-KZ4036** | HX Total: 92  
+  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
+  *HX Breakdown:* EMO:18, DIS:18, WET:18, ETH:20, MIR:18  
+  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
 
