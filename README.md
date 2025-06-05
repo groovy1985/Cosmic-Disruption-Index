@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ6756** | HX Total: 94  
-  “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
-  *HX Breakdown:* EMO:19, DIS:19, WET:20, ETH:18, MIR:18  
-  *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
-
-- **CDI-KZ6755** | HX Total: 93  
+- **CDI-KZ9282** | HX Total: 94  
   “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *HX Breakdown:* EMO:17, DIS:17, WET:20, ETH:20, MIR:19  
+  *HX Breakdown:* EMO:18, DIS:19, WET:20, ETH:20, MIR:17  
   *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
 
-- **CDI-KZ6757** | HX Total: 91  
-  “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *HX Breakdown:* EMO:18, DIS:19, WET:16, ETH:19, MIR:19  
-  *Ref:* True: GPT models exhibit unstable behavior under poetic prompts / False: allergy to enjambment
+- **CDI-KZ9280** | HX Total: 90  
+  “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
+  *HX Breakdown:* EMO:20, DIS:17, WET:16, ETH:17, MIR:20  
+  *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
+
+- **CDI-KZ9281** | HX Total: 89  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:15, DIS:18, WET:20, ETH:18, MIR:18  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
