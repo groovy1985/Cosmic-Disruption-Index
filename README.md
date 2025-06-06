@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ8126** | HX Total: 92  
-  “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *HX Breakdown:* EMO:20, DIS:19, WET:18, ETH:16, MIR:19  
-  *Ref:* True: GPT models exhibit unstable behavior under poetic prompts / False: allergy to enjambment
+- **CDI-KZ7092** | HX Total: 90  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:18, DIS:19, WET:16, ETH:18, MIR:19  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
-- **CDI-KZ8125** | HX Total: 85  
-  “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:14, DIS:20, WET:15, ETH:16, MIR:20  
-  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
+- **CDI-KZ7093** | HX Total: 90  
+  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
+  *HX Breakdown:* EMO:18, DIS:17, WET:17, ETH:19, MIR:19  
+  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
 
-- **CDI-KZ8124** | HX Total: 84  
+- **CDI-KZ7090** | HX Total: 85  
   “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
-  *HX Breakdown:* EMO:12, DIS:18, WET:17, ETH:17, MIR:20  
+  *HX Breakdown:* EMO:17, DIS:19, WET:16, ETH:15, MIR:18  
   *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
 
