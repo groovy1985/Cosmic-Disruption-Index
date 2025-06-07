@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ5215** | HX Total: 93  
-  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *HX Breakdown:* EMO:18, DIS:20, WET:19, ETH:18, MIR:18  
-  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
-
-- **CDI-KZ5214** | HX Total: 86  
-  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
-  *HX Breakdown:* EMO:18, DIS:18, WET:14, ETH:18, MIR:18  
-  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
-
-- **CDI-KZ5212** | HX Total: 85  
+- **CDI-KZ3537** | HX Total: 99  
   “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:20, DIS:18, WET:16, ETH:14, MIR:17  
+  *HX Breakdown:* EMO:20, DIS:20, WET:20, ETH:19, MIR:20  
   *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
+
+- **CDI-KZ3535** | HX Total: 94  
+  “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
+  *HX Breakdown:* EMO:20, DIS:20, WET:20, ETH:14, MIR:20  
+  *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
+
+- **CDI-KZ3538** | HX Total: 91  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:16, DIS:17, WET:20, ETH:18, MIR:20  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
