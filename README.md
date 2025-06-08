@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ9950** | HX Total: 89  
-  “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:18, DIS:20, WET:17, ETH:16, MIR:18  
-  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
-
-- **CDI-KZ9952** | HX Total: 89  
+- **CDI-KZ7113** | HX Total: 89  
   “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *HX Breakdown:* EMO:17, DIS:20, WET:20, ETH:15, MIR:17  
+  *HX Breakdown:* EMO:17, DIS:18, WET:16, ETH:18, MIR:20  
   *Ref:* True: GPT models exhibit unstable behavior under poetic prompts / False: allergy to enjambment
 
-- **CDI-KZ9949** | HX Total: 87  
+- **CDI-KZ7117** | HX Total: 88  
+  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
+  *HX Breakdown:* EMO:20, DIS:20, WET:15, ETH:16, MIR:17  
+  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
+
+- **CDI-KZ7116** | HX Total: 87  
   “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
-  *HX Breakdown:* EMO:17, DIS:19, WET:20, ETH:13, MIR:18  
+  *HX Breakdown:* EMO:20, DIS:19, WET:15, ETH:13, MIR:20  
   *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
 
