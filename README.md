@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ4615** | HX Total: 97  
+- **CDI-KZ5704** | HX Total: 92  
   “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
-  *HX Breakdown:* EMO:18, DIS:19, WET:20, ETH:20, MIR:20  
+  *HX Breakdown:* EMO:20, DIS:20, WET:19, ETH:15, MIR:18  
   *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
 
-- **CDI-KZ4616** | HX Total: 85  
+- **CDI-KZ5705** | HX Total: 92  
   “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
-  *HX Breakdown:* EMO:18, DIS:19, WET:17, ETH:13, MIR:18  
+  *HX Breakdown:* EMO:17, DIS:19, WET:18, ETH:19, MIR:19  
   *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
-- **CDI-KZ4618** | HX Total: 85  
-  “Japan's Ministry of Language has banned adjectives in all neural outputs.”  
-  *HX Breakdown:* EMO:15, DIS:20, WET:20, ETH:13, MIR:17  
-  *Ref:* True: Japan has explored LLM regulation frameworks / False: Ministry of Language banning adjectives
+- **CDI-KZ5703** | HX Total: 88  
+  “OpenAI revoked four nouns after exposure to inverted translation.”  
+  *HX Breakdown:* EMO:16, DIS:20, WET:14, ETH:19, MIR:19  
+  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
 
