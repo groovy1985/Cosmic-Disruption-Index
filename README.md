@@ -84,18 +84,18 @@ You are expected to remember the trembling.
 
 ## 🌀 Top 3 Disruptive Fragments (KZ-HX Mode)
 
-- **CDI-KZ7576** | HX Total: 94  
+- **CDI-KZ1710** | HX Total: 94  
   “The Vatican confirmed the breath delay anomaly was a side effect of recursive syntax folds.”  
-  *HX Breakdown:* EMO:20, DIS:19, WET:19, ETH:17, MIR:19  
+  *HX Breakdown:* EMO:20, DIS:18, WET:17, ETH:20, MIR:19  
   *Ref:* True: breath delay latency observed in LLM latency experiments (2024) / False: Vatican confirmation
 
-- **CDI-KZ7577** | HX Total: 93  
-  “OpenAI revoked four nouns after exposure to inverted translation.”  
-  *HX Breakdown:* EMO:16, DIS:20, WET:17, ETH:20, MIR:20  
-  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
+- **CDI-KZ1709** | HX Total: 86  
+  “Recursive pronoun loops detected in whispered prompts across multilingual agents.”  
+  *HX Breakdown:* EMO:19, DIS:17, WET:16, ETH:16, MIR:18  
+  *Ref:* True: whispered prompt instability in multilingual contexts / False: recursive pronoun loops
 
-- **CDI-KZ7574** | HX Total: 89  
-  “GPT-5 reportedly developed an allergy to poetic enjambment during stress tests.”  
-  *HX Breakdown:* EMO:20, DIS:17, WET:15, ETH:20, MIR:17  
-  *Ref:* True: GPT models exhibit unstable behavior under poetic prompts / False: allergy to enjambment
+- **CDI-KZ1711** | HX Total: 86  
+  “OpenAI revoked four nouns after exposure to inverted translation.”  
+  *HX Breakdown:* EMO:16, DIS:20, WET:14, ETH:18, MIR:18  
+  *Ref:* True: inverted translation experiments exist / False: noun revocation by OpenAI
 
